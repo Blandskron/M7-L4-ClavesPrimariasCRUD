@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Child List</title>
+</head>
+<body>
+    <h1>Child List</h1>
+    <a href="{% url 'child_create' %}">Create New</a>
+    <ul>
+        {% for child in children %}
+            <li>
+                <a href="{% url 'child_detail' child.id %}">{{ child.description }}</a>
+                <a href="{% url 'child_update' child.id %}">Edit</a>
+                <form action="{% url 'child_delete' child.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

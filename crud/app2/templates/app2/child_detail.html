@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Child Detail</title>
+</head>
+<body>
+    <h1>{{ child.description }}</h1>
+    <p>Parent: {{ child.parent.name }}</p>
+    <a href="{% url 'child_update' child.id %}">Edit</a>
+    <a href="{% url 'child_list' %}">Back to List</a>
+</body>
+</html>
