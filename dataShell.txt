@@ -1,0 +1,17 @@
+python manage.py shell
+
+# Importa los modelos
+from app1.models import ParentModel
+from app2.models import ChildModel
+
+# Crear un objeto en ParentModel
+parent = ParentModel.objects.create(name="Parent Example")
+print(f"Parent created: {parent}")
+
+# Crear un objeto en ChildModel relacionado con ParentModel
+child = ChildModel.objects.create(parent=parent, description="Child Description Example")
+print(f"Child created: {child}")
+
+# Verificar los datos creados
+print(ParentModel.objects.all())
+print(ChildModel.objects.all())
